@@ -40,6 +40,7 @@ namespace Kolokwium2.Contexts
             modelBuilder.Entity<Track> (t => 
                 {
                     t.HasData(new Track { IdTrack = 10, TrackName = "Miłość jest...", Duration = 5.2f, IdMusicAlbum_FK = 1 });
+                    t.HasData(new Track { IdTrack = 11, TrackName = "Papamobile", Duration = 3.1f, IdMusicAlbum_FK = 1 });
                 }
             );
 
@@ -47,6 +48,7 @@ namespace Kolokwium2.Contexts
                 {
                     mt.HasKey(k => new { k.IdTrack, k.IdMusican });
                     mt.HasData(new Musican_Track { IdMusican = 1, IdTrack = 10 });
+                    mt.HasData(new Musican_Track { IdMusican = 1, IdTrack = 11 });
                 }
             );
 
