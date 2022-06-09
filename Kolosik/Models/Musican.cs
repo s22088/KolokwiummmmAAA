@@ -21,6 +21,6 @@ namespace Kolokwium2.Models
         [MaxLength(20)]
         public string Nickame { get; set; }
 
-        public virtual ICollection<Musican> Musicans { get; set; }
+        public virtual ICollection<Musican_Track> Musican_Tracks { get; set; }
     }
 }

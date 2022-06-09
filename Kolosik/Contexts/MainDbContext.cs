@@ -19,19 +19,44 @@ namespace Kolokwium2.Contexts
             base.OnModelCreating(modelBuilder);
 
 
-            //Przykład danych zawarcia dwóch kluczy głównych oraz zasedowanie db
-            /*
-            modelBuilder.Entity<Prescription_Medicament> (pm => 
+            modelBuilder.Entity<Musican>(musican =>
                 {
-                    pm.HasKey(k => new { k.IdMedicament, k.IdPrescription });
-                    pm.HasData(new Prescription_Medicament { IdMedicament = 1, IdPrescription = 1, Dose = 10, Details = "" });
-                    
+                    musican.HasData(new Musican { IdMusican = 1, FirstName = "Karol", LastName = "Wojtyła", Nickame = "Karol W." });
                 }
             );
-            */
+
+            modelBuilder.Entity<MusicLabel> (musicLabel => 
+                {
+                    musicLabel.HasData(new MusicLabel { IdMusicLabel = 1, Name = "Wadowicownia" });
+                }
+            );
+
+            modelBuilder.Entity<Album>(album =>
+                {
+                    album.HasData(new Album { IdAlbum = 1, AlbumName = "2138", PublishDate = DateTime.Parse("2005-04-10"), IdMusicLabel_FK = 1 });
+                }
+            );
+
+            modelBuilder.Entity<Track> (t => 
+                {
+                    t.HasData(new Track { IdTrack = 10, TrackName = "Miłość jest...", Duration = 5.2f, IdMusicAlbum_FK = 1 });
+                }
+            );
+
+            modelBuilder.Entity<Musican_Track>(mt =>
+                {
+                    mt.HasKey(k => new { k.IdTrack, k.IdMusican });
+                    mt.HasData(new Musican_Track { IdMusican = 1, IdTrack = 10 });
+                }
+            );
+
         }
 
-        //Sekcja z DbSet
-        //public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Musican> Musicans { get; set; }
+        public DbSet<Musican_Track> Musican_Tracks { get; set; }
+        public DbSet<MusicLabel> MusicLabels { get; set; }
+        public DbSet<Track> Tracks { get; set; }
+
     }
 }
