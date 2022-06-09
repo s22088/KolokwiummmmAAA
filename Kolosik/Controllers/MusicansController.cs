@@ -8,11 +8,10 @@ namespace Kolokwium2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SamplesController : ControllerBase
+    public class MusicansController : ControllerBase
     {
         public readonly IDbSqlServer _sqlServer;
-        //ZMIENIĆ NAZWĘ TRZEBA!!!!
-        public SamplesController(IDbSqlServer sqlServer)
+        public MusicansController(IDbSqlServer sqlServer)
         {
             _sqlServer = sqlServer;
         }
