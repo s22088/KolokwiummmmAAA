@@ -8,5 +8,7 @@ namespace Kolokwium2.Services
     {
         public Task<Musican_DTO> getMusicanDetails(int id);
         public Task<bool> musicanExist(int id);
+
+        public Task<bool> musicanCreatesMusic(int id);
     }
 }

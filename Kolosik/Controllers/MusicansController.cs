@@ -31,7 +31,25 @@ namespace Kolokwium2.Controllers
 
 
             return Ok(musican);
+        }
 
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public async Task<IActionResult> deleteMusican(int id) 
+        {
+            if (!await _sqlServer.musicanExist(id)) 
+            {
+                return NotFound("Musican doesnt exist");
+            }
+
+            //needs to implement that methood!
+            if (!await _sqlServer.musicanCreatesMusic(id)) 
+            {
+                return BadRequest($"Musican id={id} cant be deleted because his/her music is in album");
+            }
+
+
+            return Ok();
         }
 
     }

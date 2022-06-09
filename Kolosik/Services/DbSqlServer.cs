@@ -37,6 +37,31 @@ namespace Kolokwium2.Services
                           }).FirstOrDefaultAsync();
         }
 
+        public async Task<bool> musicanCreatesMusic(int id)
+        {
+            //    Musican_DTO musican = await (from mt in _context.Musican_Tracks
+            //                                 join m in _context.Musicans on mt.IdMusican equals m.IdMusican
+            //                                 where m.IdMusican == id
+
+            //                                 select new MusicanMusicAlbum_DTO
+            //                                 {
+            //                                     FirstName = m.FirstName,
+            //                                     LastName = m.LastName,
+            //                                     Nickname = m.Nickame,
+
+            //                                     tracks = _context.Musican_Tracks
+            //                                               .Join(_context.Tracks, mut => mut.IdTrack, t => t.IdTrack, (mut, t) => new { TrackName = t.TrackName, Duration = t.Duration, Name = (from a in _context.Albums
+            //                                                                                                                                                                                    where a.IdAlbum == t.IdMusicAlbum_FK
+            //                                                                                                                                                                                    select new { Name = a.AlbumName }).First()})
+            //                                               .Select(e => new TrackAlbum_DTO { TrackName = e.TrackName, Duration = e.Duration, Name = e.Name })
+            //                                               .OrderBy(e => e.Duration)
+            //                                               .ToList()
+
+            //                                 });.FirstOrDefaultAsync();
+
+            return false;
+        }
+
         public async Task<bool> musicanExist(int id)
         {
             var queryToFind = await (from m in _context.Musicans
